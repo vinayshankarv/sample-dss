@@ -1,0 +1,111 @@
+Review II Scraper - Sample Run Log
+==================================
+
+Run Date: 2024-12-01 14:30:22
+Mode: Dry Run
+Configuration: config.yml
+
+Starting Review II scraper...
+✓ Configuration loaded successfully
+✓ 3 start URLs configured
+✓ Final page patterns: ['/rule/\\d+', '/regulation/\\d+', '/document/\\d+']
+
+URL Analysis:
+- Total URLs provided: 3
+- Final page URLs identified: 3
+- Sample URLs for dry run: 3
+
+Processing URLs:
+1. https://example.com/rule/123
+   ✓ URL matches final page pattern: /rule/\d+
+   ✓ Request successful (200 OK)
+   ✓ Title extracted: "Environmental Protection Rule 123"
+   ✓ Content extracted: 2,847 characters
+   ✓ Sections found: 4
+   ✓ Metadata fields: 6
+
+2. https://example.com/regulation/456
+   ✓ URL matches final page pattern: /regulation/\d+
+   ✓ Request successful (200 OK)
+   ✓ Title extracted: "Safety Regulation 456"
+   ✓ Content extracted: 1,923 characters
+   ✓ Sections found: 3
+   ✓ Metadata fields: 5
+
+3. https://example.com/document/789
+   ✓ URL matches final page pattern: /document/\d+
+   ✓ Request successful (200 OK)
+   ✓ Title extracted: "Policy Document 789"
+   ✓ Content extracted: 3,156 characters
+   ✓ Sections found: 5
+   ✓ Metadata fields: 7
+
+Dry Run Results:
+================
+Total URLs processed: 3
+Successful extractions: 3
+Failed extractions: 0
+Success rate: 100.0%
+
+Sample extracted data:
+{
+  "id": "123",
+  "title": "Environmental Protection Rule 123",
+  "url": "https://example.com/rule/123",
+  "text": "This rule establishes environmental protection standards...",
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "Purpose and Scope",
+      "text": "The purpose of this rule is to..."
+    },
+    {
+      "id": "section_2", 
+      "title": "Definitions",
+      "text": "For the purposes of this rule..."
+    }
+  ],
+  "metadata": {
+    "author": "Environmental Protection Agency",
+    "date_published": "2024-01-15",
+    "document_type": "Final Rule",
+    "effective_date": "2024-03-01"
+  },
+  "scraped_at": "2024-12-01T14:30:25.123456"
+}
+
+Performance Metrics:
+===================
+Average request time: 1.2 seconds
+Total processing time: 4.8 seconds
+Memory usage: 45.2 MB
+Requests per second: 0.6 (respectful rate limiting)
+
+Configuration Validation:
+========================
+✓ All required fields present
+✓ URL patterns valid regex
+✓ Output directory writable
+✓ Concurrency level appropriate (3)
+✓ Rate limiting configured
+
+Dry run completed successfully!
+
+Note: This was a dry run - no files were written to disk.
+To perform a full scrape with file output, use:
+python review2/scraper/run_scraper.py --config config.yml --mode full-run
+
+Robots.txt Compliance:
+=====================
+✓ All sample URLs checked against robots.txt
+✓ No disallowed paths detected
+✓ Crawl-delay respected where specified
+
+Next Steps:
+===========
+1. Review extracted data quality
+2. Adjust parser selectors if needed
+3. Run full scrape when ready
+4. Monitor output files and logs
+
+End of dry run log.
